@@ -63,17 +63,17 @@ function usePopper({
   ]);
 
   React.useEffect(() => {
-    if (!popperInstance.current) return;
+    if (popperInstance.current === null) return;
 
     if (eventsEnabled) {
       popperInstance.current.enableEventListeners();
     } else {
       popperInstance.current.disableEventListeners();
     }
-  }, [eventsEnabled, popperInstance.current]);
+  }, [eventsEnabled]);
 
   React.useEffect(() => {
-    if (popperInstance.current) {
+    if (popperInstance.current !== null) {
       popperInstance.current.scheduleUpdate();
     }
   });
