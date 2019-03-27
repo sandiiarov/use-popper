@@ -1,6 +1,5 @@
 import Popper from 'popper.js';
 import React from 'react';
-import useStyles from './useStyles';
 
 // @ts-ignore
 const popperStyles: CSSStyleDeclaration = {
@@ -21,8 +20,8 @@ function usePopperState(
   },
   (data: Popper.Data) => Popper.Data
 ] {
-  const [currentPopperStyles, setPopperStyles] = useStyles(popperStyles);
-  const [currentArrowStyles, setArrowStyles] = useStyles({});
+  const [currentPopperStyles, setPopperStyles] = React.useState(popperStyles);
+  const [currentArrowStyles, setArrowStyles] = React.useState({});
   const [currentPlacement, setPlacement] = React.useState<Popper.Placement>(
     placement
   );

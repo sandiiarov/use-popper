@@ -1,6 +1,6 @@
 {
   "name": "use-popper",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "tsc": "tsc --noEmit"
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "popper.js": "1.14.7",
-    "react-fast-compare": "2.0.4"
+    "use-deep-compare-effect": "1.1.0"
   },
   "devDependencies": {
     "@babel/preset-react": "7.0.0",

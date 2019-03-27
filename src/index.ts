@@ -1,5 +1,7 @@
 import Popper from 'popper.js';
 import React from 'react';
+// @ts-ignore
+import useDeepCompareEffect from 'use-deep-compare-effect';
 import usePopperState from './usePopperState';
 
 export interface Options {
@@ -21,7 +23,7 @@ function usePopper({
   const [popperNode, popperRef] = React.useState<Element | null>(null);
   const [arrowNode, arrowRef] = React.useState<Element | null>(null);
 
-  React.useEffect(() => {
+  useDeepCompareEffect(() => {
     if (popperInstance.current !== null) {
       popperInstance.current.destroy();
     }
@@ -54,6 +56,7 @@ function usePopper({
       }
     };
   }, [
+    popperInstance,
     arrowNode,
     referrenceNode,
     popperNode,
@@ -70,13 +73,13 @@ function usePopper({
     } else {
       popperInstance.current.disableEventListeners();
     }
-  }, [eventsEnabled]);
+  }, [popperInstance, eventsEnabled]);
 
   React.useEffect(() => {
     if (popperInstance.current !== null) {
       popperInstance.current.scheduleUpdate();
     }
-  });
+  }, [popperInstance]);
 
   return {
     placement: popperStyles.placement,
