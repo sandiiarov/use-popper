@@ -11,7 +11,7 @@ import React from 'react';
 import usePopper from 'use-popper';
 import { useHover } from 'use-events';
 
-function useTooltip(props) {
+function Tooltip(props) {
   const { placement, referrence, popper, arrow } = usePopper({ placement: 'bottom' });
   const [active, bind] = useHover();
 
@@ -30,5 +30,5 @@ function useTooltip(props) {
   );
 };
 
-export default useTooltip;
+export default Tooltip;
 ```
