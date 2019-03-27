@@ -11,7 +11,7 @@ import React from 'react';
 import usePopper from 'use-popper';
 import { useHover } from 'use-events';
 
-const useTooltip = props => {
+function useTooltip(props) {
   const { placement, referrence, popper, arrow } = usePopper({
     placement: props.placement,
   });
