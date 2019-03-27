@@ -13,19 +13,23 @@ import { useHover } from 'use-events';
 
 function useTooltip(props) {
   const { placement, referrence, popper, arrow } = usePopper({
-    placement: props.placement,
+    placement: 'bottom',
   });
   const [active, bind] = useHover();
 
-  const Tooltip = message =>
-    active ? (
-      <div ref={popper.ref} style={popper.styles} data-placement={placement}>
-        <div>{message}</div>
-        <div ref={arrow.ref} style={arrow.styles} />
-      </div>
-    ) : null;
-
-  return [Tooltip, { ...referrence, ...bind }];
+  return (
+    <div>
+      <button ref={referrence.ref} {...bind}>
+        hover me
+      </button>
+      {active && (
+        <div ref={popper.ref} style={popper.styles} data-placement={placement}>
+          <div>Hello!</div>
+          <div ref={arrow.ref} style={arrow.styles} />
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default useTooltip;
