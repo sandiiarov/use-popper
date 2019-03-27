@@ -12,9 +12,7 @@ import usePopper from 'use-popper';
 import { useHover } from 'use-events';
 
 function useTooltip(props) {
-  const { placement, referrence, popper, arrow } = usePopper({
-    placement: 'bottom',
-  });
+  const { placement, referrence, popper, arrow } = usePopper({ placement: 'bottom' });
   const [active, bind] = useHover();
 
   return (
