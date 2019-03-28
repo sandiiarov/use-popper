@@ -4,7 +4,7 @@ import React from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import usePopperState from './usePopperState';
 
-export interface Options {
+interface Options {
   placement?: Popper.Placement;
   positionFixed?: boolean;
   eventsEnabled?: boolean;
@@ -82,13 +82,13 @@ function usePopper({
   }, [popperInstance]);
 
   return {
-    placement: popperStyles.placement,
     referrence: {
       ref: referrenceRef,
     },
     popper: {
       ref: popperRef,
       styles: popperStyles.popperStyles as React.CSSProperties,
+      placement: popperStyles.placement,
     },
     arrow: {
       ref: arrowRef,
