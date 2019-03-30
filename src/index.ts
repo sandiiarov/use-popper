@@ -1,7 +1,7 @@
 import Popper from 'popper.js';
 import React from 'react';
 // @ts-ignore
-import useDeepCompareEffect from 'use-deep-compare-effect';
+import { useDeepCompareEffect } from 'use-deep-compare';
 import usePopperState from './usePopperState';
 
 interface Options {
