@@ -4,6 +4,22 @@
 ![npm](https://img.shields.io/npm/v/use-popper.svg)
 ![NpmLicense](https://img.shields.io/npm/l/use-popper.svg)
 
+# Install
+
+> Note: React 16.8+ is required for Hooks.
+
+### With npm
+
+```sh
+npm i use-popper
+```
+
+### Or with yarn
+
+```sh
+yarn add use-popper
+```
+
 [![Edit usePopper](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/ww293zr265?fontsize=14)
 
 ```js
