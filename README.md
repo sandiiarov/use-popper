@@ -4,7 +4,7 @@
 ![npm](https://img.shields.io/npm/v/use-popper.svg)
 ![NpmLicense](https://img.shields.io/npm/l/use-popper.svg)
 
-# Install
+## Installation
 
 > Note: React 16.8+ is required for Hooks.
 
