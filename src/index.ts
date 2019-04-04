@@ -1,23 +1,23 @@
-import Popper from 'popper.js';
+import PopperJS from 'popper.js';
 import React from 'react';
 // @ts-ignore
 import { useDeepCompareEffect } from 'use-deep-compare';
 import usePopperState from './usePopperState';
 
-interface Options {
-  placement?: Popper.Placement;
+export interface Popper {
+  placement?: PopperJS.Placement;
   positionFixed?: boolean;
   eventsEnabled?: boolean;
-  modifiers?: Popper.Modifiers;
+  modifiers?: PopperJS.Modifiers;
 }
 
-function usePopper({
+function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
   placement = 'bottom',
   positionFixed = false,
   eventsEnabled = true,
   modifiers = {},
-}: Options) {
-  const popperInstance = React.useRef<Popper>(null);
+}: Popper) {
+  const popperInstance = React.useRef<PopperJS>(null);
   const [popperStyles, updatePopperState] = usePopperState(placement);
   const [referrenceNode, referrenceRef] = React.useState<Element | null>(null);
   const [popperNode, popperRef] = React.useState<Element | null>(null);
@@ -31,7 +31,7 @@ function usePopper({
     if (referrenceNode === null || popperNode === null) return;
 
     // @ts-ignore
-    popperInstance.current = new Popper(referrenceNode, popperNode, {
+    popperInstance.current = new PopperJS(referrenceNode, popperNode, {
       placement,
       positionFixed,
       modifiers: {
@@ -83,15 +83,15 @@ function usePopper({
 
   return {
     referrence: {
-      ref: referrenceRef,
+      ref: (referrenceRef as unknown) as React.RefObject<R>,
     },
     popper: {
-      ref: popperRef,
+      ref: (popperRef as unknown) as React.RefObject<P>,
       styles: popperStyles.popperStyles as React.CSSProperties,
       placement: popperStyles.placement,
     },
     arrow: {
-      ref: arrowRef,
+      ref: (arrowRef as unknown) as React.RefObject<A>,
       styles: popperStyles.arrowStyles as React.CSSProperties,
     },
   };
