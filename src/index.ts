@@ -1,7 +1,7 @@
 import PopperJS from 'popper.js';
 import React from 'react';
-// @ts-ignore
 import { useDeepCompareEffect } from 'use-deep-compare';
+import useCallbackRef from './useCallbackRef';
 import usePopperState from './usePopperState';
 
 export interface Popper {
@@ -19,9 +19,9 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
 }: Popper) {
   const popperInstance = React.useRef<PopperJS>(null);
   const [popperStyles, updatePopperState] = usePopperState(placement);
-  const [referrenceNode, referrenceRef] = React.useState<Element | null>(null);
-  const [popperNode, popperRef] = React.useState<Element | null>(null);
-  const [arrowNode, arrowRef] = React.useState<Element | null>(null);
+  const [referrenceNode, referrenceRef] = useCallbackRef<R>();
+  const [popperNode, popperRef] = useCallbackRef<P>();
+  const [arrowNode, arrowRef] = useCallbackRef<A>();
 
   useDeepCompareEffect(() => {
     if (popperInstance.current !== null) {
@@ -39,7 +39,7 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
         arrow: {
           ...(modifiers && modifiers.arrow),
           enabled: Boolean(arrowNode),
-          element: arrowNode as Element,
+          element: arrowNode,
         },
         applyStyle: { enabled: false },
         updateStateModifier: {
@@ -83,15 +83,15 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
 
   return {
     referrence: {
-      ref: (referrenceRef as unknown) as React.RefObject<R>,
+      ref: referrenceRef,
     },
     popper: {
-      ref: (popperRef as unknown) as React.RefObject<P>,
+      ref: popperRef,
       styles: popperStyles.popperStyles as React.CSSProperties,
       placement: popperStyles.placement,
     },
     arrow: {
-      ref: (arrowRef as unknown) as React.RefObject<A>,
+      ref: arrowRef,
       styles: popperStyles.arrowStyles as React.CSSProperties,
     },
   };
