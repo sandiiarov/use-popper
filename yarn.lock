@@ -728,6 +728,40 @@
     strip-bom "^3.0.0"
     validate-npm-package-license "^3.0.4"
 
+"@pika/pack@^0.3.6":
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/@pika/pack/-/pack-0.3.7.tgz#fa093b4b075947c8c1d1a72e659522e70966c68e"
+  integrity sha512-YoY5eRji4ABupF0SNyeRPFaCZ1VPYTI7ytorgSnphstqup9krBFe41EtEVHXD7VQkINlXKXgJUfTS41spaL2vA==
+  dependencies:
+    "@pika/types" "^0.3.3"
+    camelcase "^4.0.0"
+    chalk "^2.1.0"
+    commander "^2.9.0"
+    detect-indent "~5.0.0"
+    execa "^1.0.0"
+    file-uri-to-path "^1.0.0"
+    github-url-from-git "^1.5.0"
+    glob "^7.1.1"
+    has-yarn "^1.0.0"
+    hosted-git-info "^2.7.1"
+    import-from "^2.1.0"
+    inquirer "^3.0.1"
+    invariant "^2.2.0"
+    is-builtin-module "^2.0.0"
+    is-ci "^1.0.10"
+    is-scoped "^1.0.0"
+    issue-regex "^2.0.0"
+    loud-rejection "^1.2.0"
+    mkdirp "^0.5.1"
+    opn "^5.4.0"
+    p-timeout "^2.0.1"
+    read "^1.0.7"
+    rimraf "^2.5.0"
+    semver "^5.6.0"
+    strip-ansi "^4.0.0"
+    strip-bom "^3.0.0"
+    validate-npm-package-license "^3.0.4"
+
 "@pika/plugin-build-node@0.3.15":
   version "0.3.15"
   resolved "https://registry.yarnpkg.com/@pika/plugin-build-node/-/plugin-build-node-0.3.15.tgz#9389a9519cab33927ba6d2f86b298473e0693239"
@@ -743,12 +777,13 @@
     rollup "^1.1.0"
     rollup-plugin-babel "^4.3.0"
 
-"@pika/plugin-build-types@0.3.14":
-  version "0.3.14"
-  resolved "https://registry.npmjs.org/@pika/plugin-build-types/-/plugin-build-types-0.3.14.tgz#1bf1f3e0ee8d824d7bd01c20faf7c2145e9f3841"
-  integrity sha512-rZheAQ5CB55SBSd+Bub06JLCelNoi9mV8P93Q1qFBVtJrQHpVjsG6fI2c2fgMUmlO/n1QI2E9Sk1WqNWIGrAMQ==
+"@pika/plugin-build-types@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@pika/plugin-build-types/-/plugin-build-types-0.4.0.tgz#316bfbeda40818ba34cd52179bd413600cafd98b"
+  integrity sha512-9yhFld2tdHXWKYPokax2w7p4LLUOl1/IwDyKaeU5J1i1ugBilz8YkiHurNc4Ru9+GIMktV91Njes/DH9VLSoPA==
   dependencies:
-    "@pika/types" "^0.3.5"
+    "@pika/pack" "^0.3.6"
+    "@pika/types" "^0.4.0"
     execa "^1.0.0"
     mkdirp "^0.5.1"
     typescript "^3.0.0"
@@ -780,6 +815,11 @@
   version "0.3.14"
   resolved "https://registry.npmjs.org/@pika/types/-/types-0.3.14.tgz#f3a6b1b5b81110d5f795750e6ec4ffad6cfe074a"
   integrity sha512-DhaiWNyfuiausuhkIJug/bSKqmQQjYcgZqXMDvT3fjRN+69/NLsG7Ihfhfi+64R53XQUf/prBe4GzL43K/01Pw==
+
+"@pika/types@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@pika/types/-/types-0.4.0.tgz#e55f4ddca4d1e6362b7f43ee7afc494c114a7d58"
+  integrity sha512-vgNcz+tvlWtHzLRmuGfpUU8I3tRTfv4YFnhrx8ZXag2kE3kPw/DnC4yMVCx9wgimI1iptyXGDTNYui+kyBGoDg==
 
 "@types/estree@0.0.39":
   version "0.0.39"
