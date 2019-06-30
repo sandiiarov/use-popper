@@ -19,7 +19,7 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
 }: Popper) {
   const popperInstance = React.useRef<PopperJS>(null);
   const [popperStyles, updatePopperState] = usePopperState(placement);
-  const [referrenceNode, referrenceRef] = useCallbackRef<R>();
+  const [referenceNode, referenceRef] = useCallbackRef<R>();
   const [popperNode, popperRef] = useCallbackRef<P>();
   const [arrowNode, arrowRef] = useCallbackRef<A>();
 
@@ -28,10 +28,10 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
       popperInstance.current.destroy();
     }
 
-    if (referrenceNode === null || popperNode === null) return;
+    if (referenceNode === null || popperNode === null) return;
 
     // @ts-ignore
-    popperInstance.current = new PopperJS(referrenceNode, popperNode, {
+    popperInstance.current = new PopperJS(referenceNode, popperNode, {
       placement,
       positionFixed,
       modifiers: {
@@ -58,7 +58,7 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
   }, [
     popperInstance,
     arrowNode,
-    referrenceNode,
+    referenceNode,
     popperNode,
     placement,
     positionFixed,
@@ -80,10 +80,13 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
       popperInstance.current.scheduleUpdate();
     }
   }, [popperInstance]);
-
+  
   return {
-    referrence: {
-      ref: referrenceRef,
+    reference: {
+      ref: referenceRef,
+    },
+    referrence: { // For backwards compatibility
+      ref: referenceRef,
     },
     popper: {
       ref: popperRef,
