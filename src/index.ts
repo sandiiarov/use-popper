@@ -85,7 +85,10 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
     reference: {
       ref: referenceRef,
     },
-    referrence: { // For backwards compatibility
+    /**
+     * @deprecated Due to typo. Use `reference` instead.
+     */
+    referrence: {
       ref: referenceRef,
     },
     popper: {
