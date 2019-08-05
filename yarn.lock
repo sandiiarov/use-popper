@@ -721,10 +721,10 @@
     strip-bom "^3.0.0"
     validate-npm-package-license "^3.0.4"
 
-"@pika/plugin-build-node@0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-build-node/-/plugin-build-node-0.5.1.tgz#bf35e6f9551f5dfa8bab11d79e3cd2d9d9eb7f56"
-  integrity sha512-AcaS1PzLOJUZ3wjiawAJH0HdrxJBaOW5hiqswrdFwe/VHW7ZApTTMBH+g/RllZzXYPyrTtrEdjD5sfOSSJ28vA==
+"@pika/plugin-build-node@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@pika/plugin-build-node/-/plugin-build-node-0.6.0.tgz#d1f7a5c3851e31a28c9340589787f5c1bf1fe399"
+  integrity sha512-9s9TN6I7P+XJLBhoT9WV8zUUZDE2tCOfquNlP5UJVnJEOrf2b2AsVc5sxQNIIkTVUmH5z8w1D7IucL+cXCrWag==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
@@ -764,11 +764,6 @@
   version "0.3.14"
   resolved "https://registry.npmjs.org/@pika/types/-/types-0.3.14.tgz#f3a6b1b5b81110d5f795750e6ec4ffad6cfe074a"
   integrity sha512-DhaiWNyfuiausuhkIJug/bSKqmQQjYcgZqXMDvT3fjRN+69/NLsG7Ihfhfi+64R53XQUf/prBe4GzL43K/01Pw==
-
-"@pika/types@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@pika/types/-/types-0.4.0.tgz#e55f4ddca4d1e6362b7f43ee7afc494c114a7d58"
-  integrity sha512-vgNcz+tvlWtHzLRmuGfpUU8I3tRTfv4YFnhrx8ZXag2kE3kPw/DnC4yMVCx9wgimI1iptyXGDTNYui+kyBGoDg==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
