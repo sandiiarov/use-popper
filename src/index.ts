@@ -16,7 +16,7 @@ function usePopper<T, R = HTMLElement, P = HTMLElement, A = HTMLElement>({
   positionFixed = false,
   eventsEnabled = true,
   modifiers = {},
-}: Popper, parentReferenceNode: React.RefObject<T>) {
+}: Popper, parentReferenceNode?: React.RefObject<T>) {
   const popperInstance = React.useRef<PopperJS>(null);
   const [popperStyles, updatePopperState] = usePopperState(placement);
   const [referenceNode, referenceRef] = useCallbackRef<R>();
