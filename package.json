@@ -37,6 +37,7 @@
     "@pika/plugin-build-web": "0.6.0",
     "@pika/plugin-standard-pkg": "0.6.0",
     "@types/react": "16.9.2",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "typescript": "3.5.3"
