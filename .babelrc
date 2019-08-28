@@ -1,0 +1,7 @@
+{
+    "presets": [
+        "@babel/typescript",
+        "@babel/react"
+    ],
+    "plugins": ["transform-es2015-arrow-functions"]
+}
