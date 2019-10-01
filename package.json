@@ -1,9 +1,10 @@
 {
   "name": "use-popper",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "license": "MIT",
   "scripts": {
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "build": "pack build"
   },
   "babel": {
     "presets": [
