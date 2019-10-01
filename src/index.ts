@@ -82,6 +82,7 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
   }, [popperInstance]);
   
   return {
+    popperInstance: popperInstance.current,
     reference: {
       ref: referenceRef,
     },
