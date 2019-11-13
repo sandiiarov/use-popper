@@ -1,0 +1,30 @@
+name: Publish on NPM
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm install -g @pika/pack
+      - run: npm install
+      - run: pika-pack
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish pkg --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npmToken}}
