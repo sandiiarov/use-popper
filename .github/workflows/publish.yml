@@ -1,7 +1,8 @@
 name: Publish on NPM
 
 on:
-  push
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -12,7 +13,7 @@ jobs:
         with:
           node-version: 12
       - run: npm install -g @pika/pack
-      - run: npm install
+      - run: npm ci
       - run: pika-pack
 
   publish-npm:
@@ -25,6 +26,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm publish pkg --dry-run
+      - run: npm publish pkg
         env:
           NODE_AUTH_TOKEN: ${{secrets.npmToken}}
