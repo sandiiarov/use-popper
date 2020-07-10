@@ -11,12 +11,12 @@ export interface Popper {
   modifiers?: PopperJS.Modifiers;
 }
 
-function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
+function usePopper<T, R = HTMLElement, P = HTMLElement, A = HTMLElement>({
   placement = 'bottom',
   positionFixed = false,
   eventsEnabled = true,
   modifiers = {},
-}: Popper) {
+}: Popper, parentReferenceNode?: React.RefObject<T>) {
   const popperInstance = React.useRef<PopperJS>(null);
   const [popperStyles, updatePopperState] = usePopperState(placement);
   const [referenceNode, referenceRef] = useCallbackRef<R>();
@@ -28,10 +28,10 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
       popperInstance.current.destroy();
     }
 
-    if (referenceNode === null || popperNode === null) return;
+    if (!(referenceNode || parentReferenceNode) || !popperNode) return;
 
     // @ts-ignore
-    popperInstance.current = new PopperJS(referenceNode, popperNode, {
+    popperInstance.current = new PopperJS(referenceNode || parentReferenceNode, popperNode, {
       placement,
       positionFixed,
       modifiers: {
@@ -63,6 +63,7 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
     placement,
     positionFixed,
     modifiers,
+    parentReferenceNode
   ]);
 
   React.useEffect(() => {
@@ -80,7 +81,7 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
       popperInstance.current.scheduleUpdate();
     }
   }, [popperInstance]);
-  
+
   return {
     popperInstance: popperInstance.current,
     reference: {
