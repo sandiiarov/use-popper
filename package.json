@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "popper.js": "1.16.1",
-    "use-deep-compare": "0.1.0"
+    "use-deep-compare": "1.1.0"
   },
   "devDependencies": {
     "@babel/preset-react": "7.10.4",
