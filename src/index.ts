@@ -1,6 +1,6 @@
 import PopperJS from 'popper.js';
 import React from 'react';
-import { useDeepCompareEffect } from 'use-deep-compare';
+import {useDeepCompareEffect} from 'use-deep-compare';
 import useCallbackRef from './useCallbackRef';
 import usePopperState from './usePopperState';
 
@@ -34,6 +34,7 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
     popperInstance.current = new PopperJS(referenceNode, popperNode, {
       placement,
       positionFixed,
+      eventsEnabled,
       modifiers: {
         ...modifiers,
         arrow: {
@@ -41,7 +42,7 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
           enabled: Boolean(arrowNode),
           element: arrowNode,
         },
-        applyStyle: { enabled: false },
+        applyStyle: {enabled: false},
         updateStateModifier: {
           enabled: true,
           order: 900,
@@ -80,7 +81,7 @@ function usePopper<R = HTMLElement, P = HTMLElement, A = HTMLElement>({
       popperInstance.current.scheduleUpdate();
     }
   }, [popperInstance]);
-  
+
   return {
     popperInstance: popperInstance.current,
     reference: {
